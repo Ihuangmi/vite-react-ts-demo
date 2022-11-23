@@ -1,21 +1,42 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["esnext", "dom", "DOM.Iterable"],
+    "sourceMap": false,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "noImplicitReturns": false,
+    "noUnusedParameters": true,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "allowJs": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "downlevelIteration": true,
+    "strict": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "config/*": ["config/*"]
+    }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "tests/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "vite.config.ts",
+    "windi.config.ts",
+    ".eslintrc.js",
+    "scripts/*.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }
