@@ -1,6 +1,6 @@
-const localcontacts = JSON.parse(localStorage.getItem("contacts") || "");
+const key = localStorage.getItem("contacts");
 
-const contacts: Array<any> = localcontacts || [
+let contacts: Array<any> = [
   {
     id: "xxx",
     first: "黄",
@@ -17,6 +17,10 @@ const contacts: Array<any> = localcontacts || [
     favorite: true,
   },
 ];
+
+if (key) {
+  contacts = JSON.parse(key);
+}
 
 function setStorage(contacts) {
   localStorage.setItem("contacts", JSON.stringify(contacts));

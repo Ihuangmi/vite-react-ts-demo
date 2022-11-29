@@ -18,7 +18,7 @@ export async function loader({ request }) {
   return { contacts, q };
 }
 
-export async function action({ params }) {
+export async function action({ request, params }) {
   const contacts = await createContact(params);
   console.log("🚀 ~ file: index.tsx ~ line 12 ~ action ~ contacts", contacts);
   return redirect(`/contacts/${contacts?.id}/edit`);
