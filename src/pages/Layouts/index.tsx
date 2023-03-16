@@ -49,6 +49,9 @@ const Layouts: React.FC = () => {
   }));
 
   return (
+    // <div>
+    //   <Outlet />
+    // </div>
     <Layout>
       <Header className="header">
         <div className="logo" />

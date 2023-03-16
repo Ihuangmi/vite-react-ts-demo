@@ -33,5 +33,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         },
       },
     },
+    server: {
+      host: '127.0.0.1',
+      port: 8888,
+      open: true
+    }
   };
 };

@@ -1,50 +1,28 @@
-import React from "react";
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  RouterProvider,
-  useRoutes,
-} from "react-router-dom";
-import Home from "./pages/Home";
-import Layouts from "./pages/Layouts";
-import CreateRoutes from "./pages/Layouts/renderRoutes";
-// import routes from "./routes";
-
-// const router = createBrowserRouter(routes);
-
-// const element = useRoutes(routes);
+import { Router, Link } from "react-router-dom";
 
 const App = () => {
-  let routes = [
-    {
-      path: "/",
-      element: <Layouts />,
-      children: [
-        { index: true, element: <Home /> },
-        {
-          path: "/courses",
-          element: <Home />,
-          children: [
-            { index: true, element: <Home /> },
-            { path: "/courses/:id", element: <Home /> },
-          ],
-        },
-        { path: "*", element: <Home /> },
-      ],
-    },
-  ];
-
-  // The useRoutes() hook allows you to define your routes as JavaScript objects
-  // instead of <Routes> and <Route> elements. This is really just a style
-  // preference for those who prefer to not use JSX for their routes config.
-  let element = useRoutes(routes);
-  // return <RouterProvider router={router} />;
-
   return (
-    <>
-      {/* <CreateRoutes routes={routes} /> */}
-      {element}
-    </>
+    <Router>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 };
 

@@ -1,9 +1,11 @@
+import { AnyARecord } from "node:dns";
+
 const key = localStorage.getItem("contacts");
 
 let contacts: Array<any> = [
   {
     id: "xxx",
-    first: "黄",
+    first: "MI",
     last: "小米",
     favorite: true,
   },
@@ -26,7 +28,12 @@ function setStorage(contacts) {
   localStorage.setItem("contacts", JSON.stringify(contacts));
 }
 
-export function getContacts(searchText) {
+/**
+ * 获取所有联系人
+ * @param searchText 
+ * @returns 
+ */
+export function getContacts(searchText?: string) {
   let filterContacts = [...contacts];
   if (searchText) {
     filterContacts = contacts.filter((item) => {
@@ -41,7 +48,12 @@ export function getContacts(searchText) {
   });
 }
 
-export function createContact(params) {
+/**
+ * 创建新的联系人
+ * @param params 
+ * @returns 
+ */
+export function createContact(params?: AnyARecord) {
   return new Promise((resolve) => {
     const contact = {
       id: Date.now().toString(),
@@ -57,6 +69,11 @@ export function createContact(params) {
   });
 }
 
+/**
+ * 获取联系人详细信息
+ * @param contactId 
+ * @returns 
+ */
 export function getContact(contactId) {
   return new Promise((resolve, reject) => {
     const contact = contacts.find((item) => item.id === contactId);
@@ -135,6 +152,6 @@ function fn() {
     if (!arr.length) return;
 
     let newArr = [];
-    for (let i = 0; i < arr.length; i++) {}
+    for (let i = 0; i < arr.length; i++) { }
   }
 }
